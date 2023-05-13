@@ -1,0 +1,270 @@
+.container {
+  background-color: #1d75de;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  max-height: 480px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+.title {
+  font-size: 39px;
+}
+.subtitle {
+  font-size: 24px;
+}
+.buttons {
+  display: "flex";
+  justify-content: "center";
+  margin-top: 20px;
+}
+.button-primary {
+  margin-right: 10px;
+  width: 170px;
+  height: 52px;
+  border-radius: 28px;
+  background-color: black;
+  color: white;
+  font-size: 14px bold;
+  border: none;
+  font-weight: bold;
+}
+.button-secondary {
+  width: 180px;
+  height: 52px;
+  border-radius: 28px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+.terms {
+  font-size: 12px;
+  margin-top: 40px;
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.title {
+  font-size: 39px;
+  margin-bottom: 20px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 35px;
+}
+
+.feat {
+  width: 23%;
+  margin: 20px 10px;
+  text-align: center;
+}
+
+.titles h3 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.paragraf p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.choices {
+  background: #efefef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.choices .subtitle {
+  font-size: 18px;
+  margin-top: 0;
+}
+.cards {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.cards img {
+  width: 100%;
+}
+
+.offers {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.all {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: 300px;
+  min-width: 200px;
+  height: 530px;
+}
+
+.choice {
+  display: flex;
+  flex-direction: column;
+  height: 430px;
+  padding: 1rem;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+}
+
+.part1 {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+}
+.part1 h3,
+p {
+  margin: 0;
+}
+.part1 h3 {
+  margin-top: 17px;
+}
+.part2 {
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+}
+
+.offers .plans {
+  background-color: white;
+  border: 2px solid #0d72ea;
+  border-radius: 4px;
+  width: 70%;
+  height: 30px;
+  color: #0d72ea;
+  font-weight: bolder;
+}
+
+.offers hr {
+  margin: 4rem 0rem 0rem 0rem;
+}
+
+.view button {
+  width: 100%;
+  border: none;
+  height: 48px;
+  border-radius: 30px;
+  color: white;
+  background-color: #000000;
+}
+
+.choice ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.choice ul li::before {
+  content: "\2713";
+  color: black;
+  display: inline-block;
+  width: 1em;
+}
+
+.free {
+  height: 26px;
+  background-color: #0d72ea;
+  width: 40%;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.u {
+  font-size: 13px;
+  padding: 7px;
+  color: #535353;
+}
+.special {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: sans-serif;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0px 0px 20px 0px;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 24%);
+}
+
+.special div button {
+  width: 150px;
+  height: 48px;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .offers {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+footer {
+  background-color: #000000;
+  width: 100%;
+}
+.footer {
+  display: flex;
+  padding: 80px;
+}
+.logo {
+  width: 20%;
+}
+.middle {
+  width: 50%;
+  gap: 70px;
+}
+.middle ul {
+  list-style: none;
+  padding: 0;
+  color: white;
+}
+.middle ul li {
+  padding: 7px 0px;
+}
+.right {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.middle {
+  color: #919496;
+  display: flex;
+}
+.end {
+  display: flex;
+  color: #919496;
+  justify-content: space-between;
+  padding: 40px;
+}
+.list ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
