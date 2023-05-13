@@ -14,7 +14,7 @@ import instagram from "./images/ins.svg";
 import twitter from "./images/twitter.svg";
 import facebook from "./images/fb.svg";
 import world from "./images/world.svg";
-import "./style/style.css";
+import "./style.css";
 
 const Premium = () => {
   return (
