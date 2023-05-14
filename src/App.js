@@ -1,23 +1,37 @@
-// import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Router from "./Router/Router";
+import { MainContext } from "./context/Context";
+import Premium from "./premium/Premium";
 
 function App() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+  const [day, setDay] = useState("");
+
+  const data = {
+    email,
+    password,
+    name,
+    month,
+    year,
+    day,
+    setEmail,
+    setPassword,
+    setName,
+    setMonth,
+    setYear,
+    setDay,
+  };
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <MainContext.Provider value={data}>
+        {/* <Premium/> */}
+
+        <Router />
+      </MainContext.Provider>
     </div>
   );
 }

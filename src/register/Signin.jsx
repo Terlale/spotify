@@ -1,11 +1,20 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaFacebook, FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import logo from "./images/logo.svg";
-import "./style.css";
+import "./style/signin.css";
+
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  const goSignup = () => {
+    navigate("/signup");
+  };
+
+  ///////////////////////////////////////////////////
   const [rememberMe, setRememberMe] = useState(false);
 
   function handleRememberMe() {
@@ -80,7 +89,7 @@ const Register = () => {
               <h4>Don't have an account?</h4>
             </div>
             <div>
-              <button className="google">Sign up for Spotify</button>
+              <button onClick={goSignup} className="google">Sign up for Spotify</button>
             </div>
           </div>
         </div>
