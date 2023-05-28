@@ -15,8 +15,14 @@ import twitter from "./images/twitter.svg";
 import facebook from "./images/fb.svg";
 import world from "./images/world.svg";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 const Premium = () => {
+  const navigate = useNavigate();
+
+  const goSignup = () => {
+    navigate("/signup");
+  };
   return (
     <div>
       <div className="container">
@@ -27,12 +33,12 @@ const Premium = () => {
         </p>
 
         <div className="buttons">
-          <button className="button-primary">GET STARTED</button>
+          <button className="button-primary" onClick={goSignup}>GET STARTED</button>
           <button className="button-secondary">SEE OTHER PLANS</button>
         </div>
         <div>
           <p className="terms">
-            <u>Terms and conditions apply</u>. 1 month free not available for
+            <u className="u-es">Terms and conditions apply</u>. 1 month free not available for
             users who have already tried Premium.
           </p>
         </div>
@@ -112,9 +118,9 @@ const Premium = () => {
                 <button>View Plans</button>
               </div>
             </div>
-            <div className="u">
-              <p>
-                <u>Terms and conditions apply.</u>
+            <div >
+              <p className="u">
+                <u className="u-s">Terms and conditions apply.</u>
               </p>
             </div>
           </div>
@@ -139,9 +145,9 @@ const Premium = () => {
                 <button>View Plans</button>
               </div>
             </div>
-            <div className="u">
-              <p>
-                <u>Terms and conditions apply.</u>1 month free not available for
+            <div >
+              <p className="u">
+                <u className="u-s">Terms and conditions apply.</u>1 month free not available for
                 users who have already tried Premium.
               </p>
             </div>
@@ -168,9 +174,9 @@ const Premium = () => {
                 <button>View Plans</button>
               </div>
             </div>
-            <div className="u">
-              <p>
-                <u>Terms and conditions apply.</u>1 month free not available for
+            <div >
+              <p className="u">
+                <u className="u-s">Terms and conditions apply.</u>1 month free not available for
                 users who have already tried Premium.
               </p>
             </div>
@@ -198,9 +204,9 @@ const Premium = () => {
                 <button>View Plans</button>
               </div>
             </div>
-            <div className="u">
-              <p>
-                <u>Terms and conditions apply.</u>1 month free not available for
+            <div >
+              <p className="u">
+                <u className="u-s">Terms and conditions apply.</u>1 month free not available for
                 users who have already tried Premium.
               </p>
             </div>

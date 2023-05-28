@@ -268,3 +268,9 @@ footer {
   display: flex;
   gap: 20px;
 }
+.u-es{
+  color: white;
+}
+.u-s{
+  color: #6e6e6e;
+}

@@ -8,11 +8,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    const goSignin=()=>{
-        navigate("/signin")
-    }
+  const goSignin = () => {
+    navigate("/signin");
+  };
+
   const {
     email,
     password,
@@ -26,24 +27,38 @@ const Signup = () => {
     setMonth,
     setYear,
     setDay,
+    errors,
+    setErrors,
   } = useContext(MainContext);
 
   const sendData = () => {
+    const newErrors = {
+      email: email === "" ? "Fill in the blanks" : "",
+      password: password === "" ? "Fill in the blanks" : "",
+      name: name === "" ? "Fill in the blanks" : "",
+    };
+
+    setErrors(newErrors);
+
+    // Check if any of the fields are empty and return if true
+    if (Object.values(newErrors).some((error) => error !== "")) {
+      return;
+    }
+
     axios
-      .post(
-        `https://646106ce491f9402f49cfe25.mockapi.io/api/spotify`,
-        {
-          email,
-          password,
-          name,
-          month,
-          year,
-          day,
-        }
-      )
+      .post(`https://646106ce491f9402f49cfe25.mockapi.io/api/spotify`, {
+        email,
+        password,
+        name,
+        month,
+        year,
+        day,
+      })
       .then((res) => {
         console.log(res.data);
+        navigate("/music")
       });
+
     setEmail("");
     setPassword("");
     setName("");
@@ -51,9 +66,10 @@ const Signup = () => {
     setYear("");
     setDay("");
   };
+  console.log(email);
   return (
     <div>
-      <div className="navbar">
+      <div className="sign-navbar-two">
         <img src={logo} alt="" />
       </div>
       <div className="main">
@@ -85,32 +101,46 @@ const Signup = () => {
           <div>
             <h5>What's your email?</h5>
             <input
-              className="input"
+              className={`input ${errors.email && "error-border"}`}
               type="text"
               placeholder="Enter your email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setErrors({ ...errors, email: "" });
+              }}
             />
+            {errors.email && <p className="error-message">{errors.email}</p>}
           </div>
           <div>
             <h5>Create a password</h5>
             <input
-             className="input"
-             type="password"
-             placeholder="Create a password"
-             value={password}
-             onChange={(e) => setPassword(e.target.value)}
+              className={`input ${errors.password && "error-border"}`}
+              type="password"
+              placeholder="Create a password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setErrors({ ...errors, password: "" });
+              }}
             />
+            {errors.password && (
+              <p className="error-message">{errors.password}</p>
+            )}
           </div>
           <div>
             <h5>What should we call you?</h5>
             <input
-              className="input"
+              className={`input ${errors.name && "error-border"}`}
               type="text"
               placeholder="Enter a profile name"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setName(e.target.value);
+                setErrors({ ...errors, name: "" });
+              }}
             />
+            {errors.name && <p className="error-message">{errors.name}</p>}
             <p>This appears on your profile.</p>
           </div>
           <h5>What's your date of birth?</h5>
@@ -178,10 +208,14 @@ const Signup = () => {
                 </p>
               </div>
               <div>
-                <button className="log" onClick={sendData}>Sign up</button>
+                <button className="log" onClick={sendData}>
+                  Sign up
+                </button>
               </div>
               <div onClick={goSignin}>
-                  <h4>Have an account? <u>Log in.</u></h4>
+                <h4>
+                  Have an account? <u>Log in.</u>
+                </h4>
               </div>
             </div>
           </div>
