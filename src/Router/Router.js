@@ -5,7 +5,8 @@ import Signup from "../register/Signup";
 import Premium from "../premium/Premium";
 import Main from "../main/Main";
 import Home from "../main/Home";
-import Music from "../music/Music";
+import MainHome from "../main/MainHome";
+import Library from "../main/Library";
 
 const Router = () => {
   return (
@@ -13,10 +14,11 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/music" element={<Music />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/premium" element={<Premium />} />
+        <Route path="/mainhome" element={<MainHome />} />
+        <Route path="/library" element={<Library/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -56,7 +56,7 @@ const Signup = () => {
       })
       .then((res) => {
         console.log(res.data);
-        navigate("/music")
+        navigate("/mainhome")
       });
 
     setEmail("");

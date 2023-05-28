@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Logo from "./img/Logo.svg";
 import "./main.css";
 import { AiFillHome } from "react-icons/ai";
@@ -7,34 +7,62 @@ import { BiLibrary } from "react-icons/bi";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import { TfiWorld } from "react-icons/tfi";
-import Home from "./Home";
 import { useNavigate } from "react-router-dom";
+import Homes from "./Homes";
+import Library from "./Library";
+import { MainContext } from "../context/Context";
 
-const Main = () => {
+const MainHome = () => {
   const navigate = useNavigate();
-  const goPremium = () => {
-    navigate("/premium");
+  const { activePage, setActivePage } = useContext(MainContext);
+  const [showContent, setShowContent] = useState(false);
+
+  const goHomes = () => {
+    setActivePage("homes");
+    navigate("/homes");
   };
-  const goSignin = () => {
-    navigate("/signin");
+
+  const goLibrary = () => {
+    setActivePage("library");
+    navigate("/library");
   };
+
+  useEffect(() => {
+    // Sayfa yüklendiğinde veya activePage değeri değiştiğinde çalışacak işlemler buraya yazılır
+    if (activePage === "homes") {
+      // "homes" sayfasına yönlendirme işlemleri veya gerekli işlemler burada yapılabilir
+      setShowContent(true);
+    } else if (activePage === "library") {
+      // "library" sayfasına yönlendirme işlemleri veya gerekli işlemler burada yapılabilir
+      setShowContent(true);
+    }
+  }, [activePage]);
+
   return (
     <div>
-      <div className="spotify" id="#spotify-container">
+      <div className="spotify" id="spotify-container">
         <div className="spotify-main">
           <img src={Logo} alt="" />
           <div className="spotify-main-all">
             <div className="spotify-list-one">
               <ul>
-                <li className="click">
+                <li
+                  className={`click ${activePage === "homes" ? "active" : ""}`}
+                  onClick={goHomes}
+                >
                   <AiFillHome className="icons" />
                   Home
                 </li>
-                <li onClick={goSignin}>
+                <li>
                   <FaSearch className="icons" />
                   Search
                 </li>
-                <li onClick={goSignin}>
+                <li
+                  className={`click ${
+                    activePage === "library" ? "active" : ""
+                  }`}
+                  onClick={goLibrary}
+                >
                   <BiLibrary className="icons" />
                   Your Library
                 </li>
@@ -42,18 +70,18 @@ const Main = () => {
             </div>
             <div className="spotify-list-two">
               <ul>
-                <li onClick={goSignin}>
+                <li>
                   <AiFillPlusSquare className="icons" />
                   Create Playlist
                 </li>
-                <li onClick={goSignin}>
+                <li>
                   <FcLike className="icons" />
                   Liked Songs
                 </li>
               </ul>
             </div>
           </div>
-          <div className="main-footer">
+          <div className="main-footer-homes">
             <div className="main-foot">
               <div>
                 <ul>
@@ -87,26 +115,15 @@ const Main = () => {
             </button>
           </div>
         </div>
-        <div className="spotify-right">
-          <Home />
-        </div>
-      </div>
-      <div className="main-end">
-        <div>
-          <h5>Preview of Spotify</h5>
-          <h4>
-            Sign up to get unlimited songs and podcasts with occasional ads. No
-            credit card needed.
-          </h4>
-        </div>
-        <div>
-          <button className="main-sign" onClick={goPremium}>
-            Sign up free
-          </button>
-        </div>
+        {showContent && (
+          <div className="spotify-right">
+            {activePage === "homes" && <Homes />}
+            {activePage === "library" && <Library />}
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default Main;
+export default MainHome;

@@ -21,7 +21,8 @@ function App() {
     password: "",
     name: "",
   });
- 
+  const [activePage, setActivePage] = useState("");
+
   const data = {
     email,
     password,
@@ -45,6 +46,8 @@ function App() {
     setPasswordErrors,
     errors,
     setErrors,
+    activePage,
+    setActivePage,
   };
   return (
     <div className="App">

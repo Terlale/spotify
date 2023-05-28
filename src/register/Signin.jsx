@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-
 import { useNavigate } from "react-router-dom";
 import { FaFacebook, FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -25,9 +24,9 @@ const Register = () => {
     error,
     setError,
     emailError,
-    setEmailError,
+    setEmailErrors,
     passwordError,
-    setPasswordError,
+    setPasswordErrors,
   } = useContext(MainContext);
 
   useEffect(() => {
@@ -47,23 +46,23 @@ const Register = () => {
     console.log(email, "includes email");
     console.log(email, "includes password");
     if (email === "") {
-      setEmailError(true);
-      setPasswordError(false);
+      setEmailErrors(true);
+      setPasswordErrors(false);
       setError("Fill in the blanks"); // Set email error message
     } else if (password === "") {
-      setEmailError(false);
-      setPasswordError(true);
+      setEmailErrors(false);
+      setPasswordErrors(true);
       setError("Fill in the blanks"); // Set password error message
     } else {
-      setEmailError(false);
-      setPasswordError(false);
+      setEmailErrors(false);
+      setPasswordErrors(false);
       const check = db.find(
         (item) =>
           item.email.includes(email) && item.password.includes(password)
       );
 
       if (check) {
-        navigate("/music");
+        navigate("/mainhome");
       } else {
         setEmail("");
         setPassword("");
@@ -107,7 +106,7 @@ const Register = () => {
               placeholder="Email address or username"
               onChange={(e) => {
                 setEmail(e.target.value);
-                setEmailError(false);
+                setEmailErrors(false);
                 setError("");
               }}
             />
@@ -119,7 +118,11 @@ const Register = () => {
               type="password"
               placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setPasswordErrors(false);
+                setError("");
+              }}
             />
             <div className="error">{error}</div>
             <p>
